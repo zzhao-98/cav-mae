@@ -19,8 +19,8 @@ preprocess = T.Compose([
 
 def extract_frame(input_video_path, target_fold, extract_frame_num=10):
     # TODO: you can define your own way to extract video_id
-    ext_len = len(input_video_path.split('/')[-1].split('.')[-1])
-    video_id = input_video_path.split('/')[-1][:-ext_len-1]
+    ext_len = len(os.path.basename(input_video_path).split('.')[-1])
+    video_id = os.path.basename(input_video_path)[:-ext_len - 1]
     vidcap = cv2.VideoCapture(input_video_path)
     fps = vidcap.get(cv2.CAP_PROP_FPS)
     # this is to avoid vggsound video's bug on not accurate frame count

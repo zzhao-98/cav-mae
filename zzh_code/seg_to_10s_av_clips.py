@@ -154,6 +154,7 @@ for count_video, name in enumerate(df_videos.name.tolist()):
         name_subject = os.path.dirname(path_video.split('Data' + os.sep)[1]).replace(os.sep, "_")
         name_save_video = '{}_{}_{}.mp4'.format(name_subject, os.path.basename(name)[:-4], count_10s)
         count_10s += 1
+        start_time = start_time + 10
         path_save_video = os.path.normpath(os.path.join(dir_save_video, name_save_video))
         clip.write_videofile(path_save_video)
 
