@@ -5,7 +5,7 @@ import re, time
 from moviepy.editor import VideoFileClip
 
 # Define the dataset folder
-dir_dataset = "C:/Users/36394/Study/GWU/PHD in Biomedical Engineer/Research/FOS/Autism_dataset"
+dir_dataset = "/home/artmed/Documents/autism_dataset"
 dir_raw = os.path.join(dir_dataset, 'Data')
 dir_save_video = os.path.join(dir_dataset, 'Data_10s_clips')
 if not os.path.exists(dir_save_video):
@@ -27,7 +27,7 @@ for path_video in paths_video:
         rate = cap.get(5)
         FrameNumber = cap.get(7)
         duration = (FrameNumber/rate) / 60
-        name = path_video.split('Data\\')[1]
+        name = path_video.split('Data' + os.sep)[1]
         videos['name'].append(name)
         videos['duration'].append(duration)
 df_videos = pd.DataFrame(videos)
